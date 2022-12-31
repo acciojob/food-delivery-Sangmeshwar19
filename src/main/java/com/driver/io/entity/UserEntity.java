@@ -1,5 +1,9 @@
 package com.driver.io.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -8,6 +12,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name = "users")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserEntity{
 
 	@Id
@@ -38,16 +45,16 @@ public class UserEntity{
 		return userId;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUserId(String user) {
+		this.userId = user;
 	}
 
 	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstName(String firstN) {
+		this.firstName = firstN;
 	}
 
 	public String getLastName() {

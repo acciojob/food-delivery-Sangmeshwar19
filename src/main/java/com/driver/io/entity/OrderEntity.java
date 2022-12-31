@@ -1,5 +1,9 @@
 package com.driver.io.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -8,9 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name = "orders")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class OrderEntity {
 
-	@Id
+	@Id //setting as primary key
 	@GeneratedValue
 	private long id;
 
@@ -25,12 +32,12 @@ public class OrderEntity {
 
 	@Column(nullable = false)
 	private String userId;
-	
+
 	@Column(nullable = false)
 	private boolean status;
 
 	public long getId() {
-		return id;
+		return id; // returning id
 	}
 
 	public void setId(long id) {
@@ -73,7 +80,7 @@ public class OrderEntity {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
-		this.status = status;
+	public void setStatus(boolean sestatus) {
+		this.status = sestatus;
 	}
 }
