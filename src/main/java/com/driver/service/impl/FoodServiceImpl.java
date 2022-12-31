@@ -12,7 +12,7 @@ import java.util.List;
 public class FoodServiceImpl implements FoodService {
 
     @Autowired
-    FoodRepository Repository;
+    FoodRepository foodRepository;
     @Override
     public FoodDto createFood(FoodDto food) {
         FoodEntity foodEntity=FoodEntity.builder().foodCategory(food.getFoodCategory()).foodId(food.getFoodId()).foodName(food.getFoodName()).foodPrice(food.getFoodPrice()).build();
@@ -29,7 +29,7 @@ public class FoodServiceImpl implements FoodService {
         return FoodDto.builder().foodId(foodEntity.getFoodId()).foodPrice(foodEntity.getFoodPrice()).foodName(foodEntity.getFoodName()).foodCategory(foodEntity.getFoodCategory()).id(foodEntity.getId()).build();
     }
 
-    @Override
+    @Override //overirding
     public FoodDto updateFoodDetails(String foodId, FoodDto foodDetails) throws Exception {
         FoodEntity foodEntity=foodRepository.findByFoodId(foodId);
         foodEntity.setFoodId(foodDetails.getFoodId());
